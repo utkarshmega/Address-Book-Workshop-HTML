@@ -90,3 +90,64 @@ body {
     padding-top: 10px;
 }
 
+.row-content {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    border: 0px solid green;
+}
+
+.label {
+    min-width: 140px;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.text {
+    font-size: 16px;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
+
+.input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 14px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    background-color: transparent;
+    margin-right: 50px;
+    margin-top: 10px;;
+}
+
+.select-data {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-end; */
+    align-items: flex-start;
+}
+
+error-output {
+    margin-left: 1  0px;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+}

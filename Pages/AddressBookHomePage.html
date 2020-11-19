@@ -24,6 +24,40 @@
                 <div class = "form-logo-header"><a href = "./AddressBookHomePage.html">
                 <img src = "../Assets/logo/Delete contact logo.jpeg" style="height: 30px;"></a></div>
             </div>
+            <div class = "row-content">
+                <label class = "label text" for = "fullName">Full Name</label>
+                <input class = "input" type = "text" id="name" name="name" placeholder="Enter Your Name" required>
+                <error-output class = "text-error" for = "text"></error-output>
+            </div>
+            <div class = "row-content">
+                <textarea class = "input" id = "address" name = "address" type = "text"
+                        placeholder="Address" style="height: 100px;" required></textarea>
+            </div>
+            <div class = "row-content">
+                <div class = "select-data">
+                    <select id = "city" name = "city">
+                        <option value="" selected hidden>Select City</option>
+                        <option value = "Prayagraj" >Prayagraj</option>
+                        <option value = "Jaipur" >Jaipur</option>
+                        <option value = "Guhawati" >Guhawati</option>
+                        <option value = "Mumbai" >Mumbai</option>
+                        <option value = "Ahmedabad" >Ahmedabad</option>
+                    </select>
+                    <select id = "month" name = "month">
+                        <option value ="" selected hidden>Select State</option>
+                        <option value = "Uttar Pradesh">Uttar Pradesh</option>
+                        <option value = "Gujrat">Gujrat</option>
+                        <option value = "Rajasthan">Rajasthan</option>
+                        <option value = "Assam">Assam</option>
+                        <option value = "Maharashtra">Maharashtra</option>
+                    </select>
+                    <input class = "input" type = "number" id = "zipcode" name = "zipcode" placeholder="Zipcode" required>
+                </div>
+            </div>
+            <div class = "row-content">
+                <input class = "input" type = "number" id = "phoneNumber" name = "phoneNumber" 
+                placeholder="Phone Number" required>
+            </div>
         </form>
     </div>
 </body>
