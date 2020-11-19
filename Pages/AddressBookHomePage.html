@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel = "stylesheet" href = "../Css/home_page.css">
+    <script src = "../js/address_book.js"></script>
     <title>Address Book Home Page</title>
 </head>
 <body>
@@ -32,6 +33,7 @@
             <div class = "row-content">
                 <textarea class = "input" id = "address" name = "address" type = "text"
                         placeholder="Address" style="height: 100px;" required></textarea>
+                <error-output class = "address-error" for = "address"></error-output>
             </div>
             <div class = "row-content">
                 <div class = "select-data">
@@ -57,6 +59,7 @@
             <div class = "row-content">
                 <input class = "input" type = "number" id = "phoneNumber" name = "phoneNumber" 
                 placeholder="Phone Number" required>
+                <error-output class = "phone-error" for = "phone"></error-ouput>
             </div>
         </form>
     </div>
