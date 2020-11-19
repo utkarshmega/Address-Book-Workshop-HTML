@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel = "stylesheet" href = "../Css/home_page.css">
     <script src = "../js/address_book.js"></script>
+    <script src = "../js/AddressBookContact.js"></script>
     <title>Address Book Home Page</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
         </div>
     </header>
     <div class = "form-content">
-        <form class = "form" action="#" onsubmit="save(event)" return false>
+        <form class = "form" action="#" onsubmit="save(event)">
             <div class = "form-head-content">
                 <div class = "form-head">PERSON ADDRESS FORM</div>
                 <div class = "form-logo-header"><a href = "./AddressBookHomePage.html">
@@ -45,7 +46,7 @@
                         <option value = "Mumbai" >Mumbai</option>
                         <option value = "Ahmedabad" >Ahmedabad</option>
                     </select>
-                    <select id = "month" name = "month">
+                    <select id = "state" name = "state">
                         <option value ="" selected hidden>Select State</option>
                         <option value = "Uttar Pradesh">Uttar Pradesh</option>
                         <option value = "Gujrat">Gujrat</option>
