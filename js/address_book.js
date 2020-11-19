@@ -53,3 +53,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
 
 });
+
+const save = (event) => {
+    let newContact = createNewContact();
+    let JsonData = JSON.stringify(newContact);
+    alert(JsonData);
+}
+
+const createNewContact = () => {
+    let contact = new contactData();
+    let names = getInputDetail("#name").split(" ");
+    contact.firstName = names[0];
+    contact.lastName = names[1];
+    contact.address = getInputDetail("#address");
+    contact.city = getInputDetail("#city");
+    contact.state = getInputDetail("#state");
+    contact.zip = getInputDetail("#zipcode");
+    contact.phoneNumber = getInputDetail("#phoneNumber");
+    return contact;
+}
+
+const getInputDetail = (id) => {
+    let data = document.querySelector(id).value;
+    return data;
+}
