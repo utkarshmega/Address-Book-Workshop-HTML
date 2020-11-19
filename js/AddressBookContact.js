@@ -11,21 +11,41 @@ class contactData {
         return this._firstName;
     }
     set firstName(firstName) {
-        this._firstName = firstName;
+        let nameRegex = RegExp('^[A-Z][a-z]{2,}$');
+        if(nameRegex.test(firstName))
+            this._firstName = firstName;
+        else
+            throw 'Invalid First Name';        
     }
 
     get lastName() {
         return this._lastName;
     }
     set lastName(lastName) {
-        this._lastName = lastName;
+        let nameRegex = RegExp('^[A-Z][a-z]{2,}$');
+        if(nameRegex.test(lastName))
+            this._lastName = lastName;
+        else
+            throw 'Invalid Last Name';
     }
 
     get address() {
         return this._address;
     }
     set address(address) {
-        this._address = address;
+        let addressRegex = RegExp('^[A-Za-z, 0-9]{3,}$');
+        let addressWords = address.split(" ");
+        if(addressWords.length>1) {
+            for(let words of addressWords) {
+                if(!addressRegex.test(words))   
+                    throw "Word should be of minimum 3 length";
+                else
+                    this._address = address;
+            }
+        }
+        else {
+            throw "Address Must have multile words";
+        }
     }
 
     get city()
@@ -61,6 +81,18 @@ class contactData {
     }
     set phoneNumber(phone)
     {
-        this._phone = phone;
+        let phoneRegex1 = RegExp('^[1-9]{1}[0-9]{9}$');
+        let phoneRegex2 = RegExp('^[0-9]{2}[1-9]{1}[0-9]{9}$');
+        let phoneRegex3 = RegExp('^[+]{1}[0-9]{2}[1-9]{1}[0-9]{9}$');
+        if(phoneRegex1.test(phone) || phoneRegex2.test(phone) || phoneRegex3.test(phone))
+            this._phone = phone;
+        else 
+            throw "Invalid Phone Number";
+    }
+
+    toString()
+    {
+        return "Id = "+this.id+", FirstName = "+this.firstName+", LastName = "+this.lastName+", Address = "+this.address+
+                ", City = "+this.city+", State = "+this.state+", Zip = "+this.zip+", Phone = "+this.phone;
     }
 }

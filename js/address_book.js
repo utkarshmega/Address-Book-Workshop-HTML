@@ -9,55 +9,56 @@ window.addEventListener('DOMContentLoaded', (event) => {
       return;
     }
     if (nameList.length == 2) {
-        if(!nameRegex.test(nameList[0]))
-        textError.textContent = 'Invalid First Name';
-        if(!nameRegex.test(nameList[1]))
-        textError.textContent = 'Invalid Last Name';
+        try {
+            (new contactData()).firstName = nameList[0];
+            (new contactData()).lastName = nameList[1];
+            textError.textContent = "";
+        } catch(e){
+            textError.textContent = e;
+        }
     }
     else {
-      if(!nameRegex.test(nameList[0]))
-        textError.textContent = 'Invalid First Name';
-      else
-        textError.textContent = "";
+        try {
+            (new contactData()).firstName = nameList[0];
+            textError.textContent = "";
+        } catch(e) {
+            textError.textContent = e;
+        }      
     }
 });
 
     const address = document.querySelector("#address");
     const addressError = document.querySelector('.address-error')
     address.addEventListener('input', function() {
-        let addressRegex = RegExp('^[A-Za-z, 0-9]{3,}$');
-        let addressWords = address.value.split(" ");
-        if(addressWords.length>1) {
-            for(words of addressWords) {
-                if(!addressRegex.test(words))   
-                    addressError.textContent = "Word should be of minimum 3 length";
-                else
-                    addressError.textContent = "";
-            }
+        try {
+            (new contactData()).address = address.value;
+            addressError.textContent = "";
         }
-        else {
-            addressError.textContent = "Address Must have multile words";
+        catch (e) {
+            addressError.textContent = e;
         }
     })
 
     const phNo = document.querySelector('#phoneNumber');
     const phoneError = document.querySelector('.phone-error');
     phNo.addEventListener('input', function() {
-        let phoneRegex1 = RegExp('^[1-9]{1}[0-9]{9}$');
-        let phoneRegex2 = RegExp('^[0-9]{2}[1-9]{1}[0-9]{9}$');
-        let phoneRegex3 = RegExp('^[+]{1}[0-9]{2}[1-9]{1}[0-9]{9}$');
-        if(phoneRegex1.test(phNo) || phoneRegex2.test(phNo) || phoneRegex3.test(phNo))
+        try {
+            (new contactData()).phoneNumber =  phNo;
             phoneError.textContent = "";
-        else 
-            phoneError.textContent = "Invalid Phone Number";
+        }
+        catch(e)
+        {
+            phoneError.textContent = e;
+        }
     })
 
 });
 
 const save = (event) => {
+    alert("saved");
     let newContact = createNewContact();
-    let JsonData = JSON.stringify(newContact);
-    alert(JsonData);
+    // let JsonData = JSON.stringify(newContact);
+    alert(newContact);
 }
 
 const createNewContact = () => {
