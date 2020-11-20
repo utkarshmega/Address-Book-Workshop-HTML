@@ -56,9 +56,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 const save = (event) => {
     alert("saved");
-    let newContact = createNewContact();
-    // let JsonData = JSON.stringify(newContact);
-    alert(newContact);
+    try {
+        let newContact = createNewContact();
+        // let JsonData = JSON.stringify(newContact);
+        createAndUpdateStorage(newContact);
+        // resetForm();
+    } catch (e)
+    {
+        alert(error);
+    }
+}
+
+function createAndUpdateStorage(addContactData) {
+
+    let contactDataList = JSON.parse(localStorage.getItem("ContactDataList"));
+
+    if(contactDataList != undefined) {
+        contactDataList.push(addContactData);
+    } else {
+        contactDataList = [addContactData];
+    }
+    alert(contactDataList.toString());
+    localStorage.setItem("ContactDataList", JSON.stringify(contactDataList));
 }
 
 const createNewContact = () => {
