@@ -55,3 +55,10 @@ const remove = (node) => {
     localStorage.setItem('ContactDataList', JSON.stringify(contactList));
     createInnerHtml();
 }
+
+const update = (node) => {
+    let contact = contactList.find(cont => cont._id == node._id);
+    if(!contact) return;
+    localStorage.setItem("editContact",JSON.stringify(contact));
+    window.location.replace(site_properties.addContactPage);
+  } 
