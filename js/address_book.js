@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const phoneError = document.querySelector('.phone-error');
     phNo.addEventListener('input', function() {
         try {
-            (new contactData()).phoneNumber =  phNo;
+            (new contactData()).phoneNumber =  phNo.value;
             phoneError.textContent = "";
         }
         catch(e)
