@@ -81,7 +81,17 @@ function createAndUpdateStorage(addContactData) {
 }
 
 const createNewContact = () => {
+    let contactList = JSON.parse(localStorage.getItem('ContactDataList'));
+    let max = 0;
+    if(contactList) {
+        for(const contactTemp of contactList){
+            if(max < contactTemp._id) {
+                max = contactTemp._id;
+            }
+        }
+    }
     let contact = new contactData();
+    contact.id = parseInt(max) + 1;
     let names = getInputDetail("#name").split(" ");
     contact.firstName = names[0];
     contact.lastName = names[1];
