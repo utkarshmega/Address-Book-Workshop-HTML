@@ -113,7 +113,6 @@ const getInputDetail = (id) => {
 
 const checkForUpdate = () => {
     const contactJsonData = localStorage.getItem("editContact");
-    alert(contactJsonData);
     isUpdate = contactJsonData ? true : false;
     if(!isUpdate) return;
     contactObj = JSON.parse(contactJsonData);
