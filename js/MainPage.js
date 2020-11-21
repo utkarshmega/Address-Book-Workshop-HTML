@@ -47,17 +47,19 @@ window.addEventListener('DOMContentLoaded',(event) => {
 }
 
 const remove = (node) => {
-    let contact = contactList.find(cont => cont._id == node._id);
+    alert('inside remove function');
+    let contact = contactList.find(cont => cont._id == node.id);
     if(!contact) return;
     const index = contactList.map(cont => cont._id).indexOf(contact._id);
     contactList.splice(index, 1);
-    document.querySelector(".person-count").textContent = contactList.length;
     localStorage.setItem('ContactDataList', JSON.stringify(contactList));
+    document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
 }
 
 const update = (node) => {
-    let contact = contactList.find(cont => cont._id == node._id);
+    alert("Inside update finction");
+    let contact = contactList.find(cont => cont._id == node.id);
     if(!contact) return;
     localStorage.setItem("editContact",JSON.stringify(contact));
     window.location.replace(site_properties.addContactPage);

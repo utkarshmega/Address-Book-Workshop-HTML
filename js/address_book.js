@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             phoneError.textContent = e;
         }
     })
-
+    checkForUpdate();
 });
 
 const save = (event) => {
@@ -112,10 +112,11 @@ const getInputDetail = (id) => {
 }
 
 const checkForUpdate = () => {
-    const contactJson = localStorage.getItem('editContact');
-    isUpdate = contactJson ? true : false;
+    const contactJsonData = localStorage.getItem("editContact");
+    alert(contactJsonData);
+    isUpdate = contactJsonData ? true : false;
     if(!isUpdate) return;
-    contactObj = JSON.parse(contactJson);
+    contactObj = JSON.parse(contactJsonData);
     setForm();
   }
   
@@ -126,4 +127,9 @@ const checkForUpdate = () => {
     setValue('#state',contactObj._state);
     setValue('#zipcode',contactObj._zip);
     setValue('#phoneNumber',contactObj._phone);
+  }
+
+  const setValue = (id, value) => {
+      const element = document.querySelector(id);
+      element.value = value;      
   }
