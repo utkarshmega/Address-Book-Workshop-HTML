@@ -35,37 +35,32 @@ window.addEventListener('DOMContentLoaded',(event) => {
         <td>${contactData._zip}</td>
         <td>${contactData._phone}</td>
         <td>
-        <img name="${contactData._id}" onclick="remove(this)" alt="delete" 
+        <img id="${contactData._id}" onclick="remove(this)" alt="delete" 
                 src="..\Assets\icons\delete-black-18dp.svg">
-        <img name="${contactData._id}" alt="edit" onclick="update(this)"
+        <img id="${contactData._id}" alt="edit" onclick="update(this)"
                 src="..\Assets\icons\create-black-18dp.svg">
         </td>
     </tr>
     `;
     }
   document.querySelector('#table-display').innerHTML = innerHtml;
-  }
+}
 
-//   const createContactJSON = () => {
-//     let contactListLocal = [
-//     {
-//         _firstName: "Harry",
-//         _lastName: "Potter",
-//         _address: "Andheri East",
-//         _city: "Mumbai",
-//         _state: "Maharashtra",
-//         _phone: "9014514785",
-//         _zip: "122001",
-//     },
-//     {
-//         _firstName: "Steve",
-//         _lastName: "Jobs",
-//         _address: "Its Tech Park",
-//         _city: "Silicon Valley",
-//         _state: "New York",
-//         _phone: "7852369412",
-//         _zip: "522101",
-//     }
-//     ];
-//     return contactListLocal;
-//   } 
+const remove = (node) => {
+    alert('inside remove function');
+    let contact = contactList.find(cont => cont._id == node.id);
+    if(!contact) return;
+    const index = contactList.map(cont => cont._id).indexOf(contact._id);
+    contactList.splice(index, 1);
+    localStorage.setItem('ContactDataList', JSON.stringify(contactList));
+    document.querySelector(".person-count").textContent = contactList.length;
+    createInnerHtml();
+}
+
+const update = (node) => {
+    alert("Inside update finction");
+    let contact = contactList.find(cont => cont._id == node.id);
+    if(!contact) return;
+    localStorage.setItem("editContact",JSON.stringify(contact));
+    window.location.replace(site_properties.addContactPage);
+  } 
