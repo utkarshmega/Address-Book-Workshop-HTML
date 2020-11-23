@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded',(event) => {
     contactList = getContactDataFromLocalStorage();
     document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
-    localStorage.removeItem('editEmp');
+    localStorage.removeItem('editContact');
   });
 
   const getContactDataFromLocalStorage = () => {
@@ -36,9 +36,9 @@ window.addEventListener('DOMContentLoaded',(event) => {
         <td>${contactData._phone}</td>
         <td>
         <img id="${contactData._id}" onclick="remove(this)" alt="delete" 
-                src="..\Assets\icons\delete-black-18dp.svg">
+                src="../Assets/icons/delete-black-18dp.svg">
         <img id="${contactData._id}" alt="edit" onclick="update(this)"
-                src="..\Assets\icons\create-black-18dp.svg">
+                src="../Assets/icons/create-black-18dp.svg">
         </td>
     </tr>
     `;
@@ -47,7 +47,6 @@ window.addEventListener('DOMContentLoaded',(event) => {
 }
 
 const remove = (node) => {
-    alert('inside remove function');
     let contact = contactList.find(cont => cont._id == node.id);
     if(!contact) return;
     const index = contactList.map(cont => cont._id).indexOf(contact._id);
@@ -58,7 +57,6 @@ const remove = (node) => {
 }
 
 const update = (node) => {
-    alert("Inside update finction");
     let contact = contactList.find(cont => cont._id == node.id);
     if(!contact) return;
     localStorage.setItem("editContact",JSON.stringify(contact));
